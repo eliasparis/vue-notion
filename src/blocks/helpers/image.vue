@@ -61,7 +61,7 @@ export default {
       };
     },
     style() {
-      const margin = (this.f.block_width - 708) / 2;
+      const margin = (this.f.block_width - 1024) / 2;
 
       const base = {
         width: `${this.f.block_width}px`,
@@ -77,7 +77,7 @@ export default {
         base["max-width"] = "98vw";
         base["margin-left"] = `-${margin}px`;
         if (this.windowWidth < this.f.block_width) {
-          base["margin-left"] = `calc((98vw - 708px)/2 * -1)`;
+          base["margin-left"] = `calc((98vw - 1024px)/2 * -1)`;
           base.width = "98vw";
         }
       }
