@@ -13,6 +13,7 @@
       :alt="alt || 'Notion image'"
       v-bind="imageProps"
     />
+    <!-- {{ f }} -->
   </div>
   <component
     v-else-if="hasImageComponent"
@@ -29,6 +30,24 @@ import { Blockable, blockComputed } from "@/lib/blockable";
 export default {
   extends: Blockable,
   name: "NotionImage",
+  data() {
+    return {
+      windowWidth: window.innerWidth
+    };
+  },
+  mounted() {
+    this.$nextTick(() => {
+      window.addEventListener("resize", this.onResize);
+    });
+  },
+  beforeDestroy() {
+    window.removeEventListener("resize", this.onResize);
+  },
+  methods: {
+    onResize() {
+      this.windowWidth = window.innerWidth;
+    }
+  },
   computed: {
     ...blockComputed,
     hasImageComponent() {
@@ -38,17 +57,32 @@ export default {
       const { component, ...attrs } = this.imageOptions || {};
       return {
         ...attrs,
-        [this.imageOptions?.src || "src"]: this.src,
+        [this.imageOptions?.src || "src"]: this.src
       };
     },
     style() {
-      const aspectRatio =
-        this.f.block_aspect_ratio || this.f.block_height / this.f.block_width;
-      return {
-        paddingBottom: `${aspectRatio * 100}%`,
+      const margin = (this.f.block_width - 708) / 2;
+
+      const base = {
+        width: `${this.f.block_width}px`,
+        "max-width": "100%",
         position: "relative",
+        margin: "0 auto"
       };
-    },
-  },
+
+      if (this.f.block_page_width) {
+        base.width = "100%";
+        base["margin-left"] = "auto";
+      } else {
+        base["max-width"] = "98vw";
+        base["margin-left"] = `-${margin}px`;
+        if (this.windowWidth < this.f.block_width) {
+          base["margin-left"] = `calc((98vw - 708px)/2 * -1)`;
+          base.width = "98vw";
+        }
+      }
+      return base;
+    }
+  }
 };
 </script>

@@ -1,10 +1,10 @@
 <template>
   <div :class="['notion-callout', blockColorClass(), blockColorClass('_co')]">
-    <div>
+    <div v-if="!icon.includes('http')">
       <NotionPageIcon v-bind="pass" />
     </div>
     <div class="notion-callout-text">
-      <NotionTextRenderer :text="title" v-bind="pass" />
+      <NotionTextRenderer :text="title" v-bind="pass" v-if="title" />
       <slot />
     </div>
   </div>

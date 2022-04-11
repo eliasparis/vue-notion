@@ -1,5 +1,9 @@
 <template>
-  <NotionBlock v-bind="pass" v-if="blockMap && value">
+  <NotionBlock
+    v-bind="pass"
+    v-if="blockMap && value"
+    :id="contentId && contentId.replace(/-/g, '')"
+  >
     <NotionRenderer
       v-for="(contentId, contentIndex) in value.content"
       v-bind="pass"
@@ -21,7 +25,7 @@ export default {
   extends: Blockable,
   name: "NotionRenderer",
   components: {
-    NotionBlock,
+    NotionBlock
   },
   props: {
     blockMap: [Object],
@@ -35,7 +39,7 @@ export default {
     pageLinkOptions: Object,
     imageOptions: Object,
     prism: { type: Boolean, default: false },
-    todo: { type: Boolean, default: false },
-  },
+    todo: { type: Boolean, default: false }
+  }
 };
 </script>

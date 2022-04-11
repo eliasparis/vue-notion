@@ -25,8 +25,7 @@
   <a
     v-else-if="decoratorKey === 'a' && isInlinePageLink"
     class="notion-link"
-    :target="target"
-    :href="mapPageUrl(decoratorValue.slice(1))"
+    :href="`#${decoratorValue.split('#')[1]}`"
   >
     <NotionDecorator :content="nextContent" v-bind="pass" />
   </a>
@@ -112,7 +111,7 @@ export default {
         return this.pageLinkTarget;
       }
       return this.textLinkTarget;
-    },
-  },
+    }
+  }
 };
 </script>
