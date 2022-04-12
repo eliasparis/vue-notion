@@ -5,20 +5,21 @@
     </p>
     <div v-else class="notion-blank">&nbsp;</div>
   </fragment>
+  <span v-else :id="pass.contentId" />
 </template>
 
 <script>
 import { Blockable } from "@/lib/blockable";
 import NotionTextRenderer from "@/blocks/helpers/text-renderer";
-import fragment from "@/blocks/helpers/fragment";
+import Fragment from "@/blocks/helpers/fragment";
 
 export default {
   extends: Blockable,
   name: "NotionText",
-  components: { NotionTextRenderer, fragment },
+  components: { NotionTextRenderer, Fragment },
   beforeMount() {
     if (this.isMenuItem) {
-      this.$root.$emit("side-menu", this.title[0][0]);
+      this.$parent.$emit("side-menu", this.title[0][0], this.pass.contentId);
     }
   },
   computed: {
