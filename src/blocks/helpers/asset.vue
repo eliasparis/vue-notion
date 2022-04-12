@@ -1,5 +1,5 @@
 <template>
-  <div :style="style">
+  <div :style="style" class="special-asset">
     <iframe
       class="notion-image-inset"
       :src="`${src}&title=0&byline=0&portrait=0&sidedock=0`"
@@ -27,7 +27,8 @@ export default {
         this.f.block_aspect_ratio || this.f.block_height / this.f.block_width;
       return {
         paddingBottom: `${aspectRatio * 100}%`,
-        position: "relative"
+        position: "relative",
+        margin: "0 auto"
       };
     },
     styleabs() {
