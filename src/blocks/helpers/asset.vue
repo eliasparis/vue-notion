@@ -2,7 +2,7 @@
   <div :style="style">
     <iframe
       class="notion-image-inset"
-      :src="src"
+      :src="`${src}&title=0&byline=0&portrait=0&sidedock=0`"
       :allow="embedAllow"
       :style="styleabs"
     />
