@@ -151,7 +151,14 @@
 .notion-page {
   padding: 0;
   margin: 0 auto;
-  max-width: 708px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.notion-page > *{
+  max-width: 804px;
   width: 100%;
 }
 

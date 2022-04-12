@@ -30,24 +30,6 @@ import { Blockable, blockComputed } from "@/lib/blockable";
 export default {
   extends: Blockable,
   name: "NotionImage",
-  data() {
-    return {
-      windowWidth: window.innerWidth
-    };
-  },
-  mounted() {
-    this.$nextTick(() => {
-      window.addEventListener("resize", this.onResize);
-    });
-  },
-  beforeDestroy() {
-    window.removeEventListener("resize", this.onResize);
-  },
-  methods: {
-    onResize() {
-      this.windowWidth = window.innerWidth;
-    }
-  },
   computed: {
     ...blockComputed,
     hasImageComponent() {
@@ -61,11 +43,8 @@ export default {
       };
     },
     style() {
-      const margin = (this.f.block_width - 1024) / 2;
-
       const base = {
         width: `${this.f.block_width}px`,
-        "max-width": "100%",
         position: "relative",
         margin: "0 auto"
       };
@@ -73,14 +52,9 @@ export default {
       if (this.f.block_page_width) {
         base.width = "100%";
         base["margin-left"] = "auto";
-      } else {
-        base["max-width"] = "98vw";
-        base["margin-left"] = `-${margin}px`;
-        if (this.windowWidth < this.f.block_width) {
-          base["margin-left"] = `calc((98vw - 1024px)/2 * -1)`;
-          base.width = "98vw";
-        }
+        base.maxWidth = "804px";
       }
+
       return base;
     }
   }
