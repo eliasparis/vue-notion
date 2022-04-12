@@ -19,7 +19,7 @@ export default {
   components: { NotionTextRenderer, Fragment },
   beforeMount() {
     if (this.isMenuItem) {
-      this.$parent.$emit("side-menu", this.title[0][0], this.pass.contentId);
+      this.$root.$emit("side-menu", this.title[0][0], this.pass.contentId);
     }
   },
   computed: {
