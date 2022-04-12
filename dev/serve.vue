@@ -26,7 +26,8 @@ export default {
     // table tester: bd1de400a8b349dc824f4f00e61d0797
     // todo tester: 235057194b954a60ace89c052a65d102
     // this.blockMap = await getPageBlocks("2e22de6b770e4166be301490f6ffd420");
-    this.blockMap = await getPageBlocks("eeea92857a0b4991ad567108f54c249a");
+    // this.blockMap = await getPageBlocks("eeea92857a0b4991ad567108f54c249a");
+    this.blockMap = await getPageBlocks("ff33d9872a234048a1b58e641b59846f");
   }
 };
 </script>

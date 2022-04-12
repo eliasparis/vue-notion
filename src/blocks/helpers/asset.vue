@@ -1,6 +1,11 @@
 <template>
   <div :style="style">
-    <iframe class="notion-image-inset" :src="src" :allow="embedAllow" />
+    <iframe
+      class="notion-image-inset"
+      :src="src"
+      :allow="embedAllow"
+      :style="styleabs"
+    />
   </div>
 </template>
 
@@ -22,9 +27,14 @@ export default {
         this.f.block_aspect_ratio || this.f.block_height / this.f.block_width;
       return {
         paddingBottom: `${aspectRatio * 100}%`,
-        position: "relative",
+        position: "relative"
       };
     },
-  },
+    styleabs() {
+      return {
+        position: "absolute"
+      };
+    }
+  }
 };
 </script>
