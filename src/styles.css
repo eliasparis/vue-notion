@@ -730,3 +730,18 @@ img.notion-nav-icon {
   background: rgb(247, 246, 243);
   font-weight: 500;
 }
+
+.notion-masive {
+  padding: 0;
+}
+
+.notion-masive + .notion-callout{
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.notion-masive + .notion-callout > * {
+  max-width: 804px;
+}
+
