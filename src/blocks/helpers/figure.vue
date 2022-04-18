@@ -1,5 +1,9 @@
 <template>
-  <figure class="notion-asset-wrapper" :style="width">
+  <figure
+    class="notion-asset-wrapper"
+    :class="{ image: isType('image'), video: isType('video') }"
+    :style="width"
+  >
     <NotionImage v-if="isType('image')" v-bind="pass" />
     <NotionAsset
       v-else-if="isType(['embed', 'video', 'figma'])"
@@ -23,7 +27,7 @@ export default {
   components: {
     NotionAsset,
     NotionImage,
-    NotionTextRenderer,
-  },
+    NotionTextRenderer
+  }
 };
 </script>
