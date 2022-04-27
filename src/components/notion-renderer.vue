@@ -3,7 +3,7 @@
     v-bind="pass"
     v-if="blockMap && value"
     :id="contentId && contentId.replace(/-/g, '')"
-    :class="[blockColorClass()]"
+    :class="[blockColorClass(), `id-${contentId}`]"
   >
     <NotionRenderer
       v-for="(contentId, contentIndex) in value.content"
