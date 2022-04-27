@@ -1,5 +1,5 @@
 <template>
-  <div v-if="f.block_aspect_ratio" :style="style">
+  <div v-if="f.block_aspect_ratio" :style="style" class="image-container">
     <component
       v-if="hasImageComponent"
       :is="imageOptions.component"

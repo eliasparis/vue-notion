@@ -745,3 +745,11 @@ img.notion-nav-icon {
   max-width: 804px;
 }
 
+@media only screen and (max-width: 1224px) {
+  .notion-asset-wrapper .image-container {
+    max-width: 100%;
+  }
+  .notion-page {
+    padding: 0 24px;
+  }
+}
