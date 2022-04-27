@@ -748,8 +748,12 @@ img.notion-nav-icon {
 @media only screen and (max-width: 1224px) {
   .notion-asset-wrapper .image-container {
     max-width: 100%;
+    width: 100!important;
   }
   .notion-page {
     padding: 0 24px;
+  }
+  .notion-bookmark-title{
+    white-space: initial!important;
   }
 }
