@@ -44,9 +44,10 @@ export default {
     },
     style() {
       const base = {
-        width: `${this.f.block_width}px`,
+        "max-width": `${this.f.block_width}px`,
         position: "relative",
-        margin: "0 auto"
+        margin: "0 auto",
+        width: "100%"
       };
 
       if (this.f.block_page_width) {
