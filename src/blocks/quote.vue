@@ -1,6 +1,7 @@
 <template>
   <blockquote v-if="properties" class="notion-quote">
     <NotionTextRenderer :text="title" v-bind="pass" />
+    <slot />
   </blockquote>
 </template>
 
@@ -12,5 +13,8 @@ export default {
   extends: Blockable,
   name: "NotionQuote",
   components: { NotionTextRenderer },
+  mounted() {
+    console.log(this);
+  }
 };
 </script>
