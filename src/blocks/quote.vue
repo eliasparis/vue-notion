@@ -12,9 +12,6 @@ import NotionTextRenderer from "@/blocks/helpers/text-renderer";
 export default {
   extends: Blockable,
   name: "NotionQuote",
-  components: { NotionTextRenderer },
-  mounted() {
-    console.log(this);
-  }
+  components: { NotionTextRenderer }
 };
 </script>
